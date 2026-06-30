@@ -2,9 +2,9 @@ from ServicioProductos.Productos import Producto
 from datetime import date
 
 class DetalleCuadro():
-    def __init__(self, producto: Producto, fecha: date1):
+    def __init__(self, producto: Producto, fecha: date ):
         self.producto = producto
-        self.fecha = fecha
+        self.fecha = fecha #En el proximo commit este debe dejar de existir
         self._cantidad_entrada = 0.0
         self._cantidad_salida = 0.0
         self._cantidad_vendida = 0.0
@@ -23,7 +23,7 @@ class DetalleCuadro():
         if not self._verificar_no_sea_numero_negativo(cantidad):
             raise ValueError("ERROR: no se puede ingresar numeros negativos")
         if not self._comprobar_cuadro_esta_abierto():
-            raise RuntimeError("ERROR: El cuadro ya no admite modificaciones")
+            raise RuntimeError("ERROR: El detalle cuadro del producto ya no admite modificaciones")
 
     def registrar_entrada_producto(self, cantidad: float) -> None:
         self._validar_movimiento(cantidad)
