@@ -7,8 +7,6 @@ class Gerente:
         self.primer_apellido = primer_apellido
         self.segundo_apellido = segundo_apellido
         self.gerente_dui = gerente_dui
-        # Aunque el UML no especifica el tipo explícito para el celular, 
-        # se asume 'str' por buenas prácticas (para incluir guiones o códigos de área).
         self.gerente_celular = gerente_celular
 
     def __str__(self):
