@@ -30,3 +30,15 @@ class Cuadro:
             return f"Sobrante en caja de: ${diferencia:.2f}"
         else:
             return f"Faltante en caja de: ${abs(diferencia):.2f}"
+        
+    def cerrar_cuadro(self) -> None:
+        """Cambia el estado para congelar el día."""
+        self.estado = "CERRADO"
+        print(f"Cuadro {self.id_cuadro} cerrado exitosamente.")
+
+    def agregar_detalle_producto(self, detalle) -> None:
+        """Permite agregar un registro de producto al cuadro diario."""
+        if self.estado == "ABIERTO":
+            self.detalles_producto_del_dia.append(detalle)
+        else:
+            print("No se pueden agregar productos. El cuadro está CERRADO.")
