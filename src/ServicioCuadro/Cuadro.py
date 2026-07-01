@@ -16,6 +16,5 @@ class Cuadro:
         """Suma el total vendido de cada producto registrado en el día."""
         total_esperado = 0.0
         for detalle in self.detalles_producto_del_dia:
-            # Llama al método de tu compañero (que ahora multiplica por el precio)
             total_esperado += detalle.calcular_total_vendido()
         return total_esperado
