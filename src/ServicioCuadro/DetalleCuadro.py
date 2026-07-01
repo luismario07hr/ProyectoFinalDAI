@@ -55,7 +55,8 @@ class DetalleCuadro():
         self._cantidad_vendida += cantidad_vendida
 
     def calcular_total_vendido(self) -> float:
-        pass
+        return self._cantidad_vendida * self.producto.precio_unitario
+        #pass
 
     def cerrar_detalle_cuadro(self) -> None:
         self._estado = "CERRADO"
