@@ -18,3 +18,15 @@ class Cuadro:
         for detalle in self.detalles_producto_del_dia:
             total_esperado += detalle.calcular_total_vendido()
         return total_esperado
+    
+    def comprobar_diferencia(self) -> str:
+        """Calcula la diferencia entre el dinero recibido y el valor monetario esperado."""
+        esperado = self.calcular_valor_monetario_esperado()
+        diferencia = self.dinero_recibido - esperado
+
+        if diferencia == 0:
+            return "La caja cuadra perfectamente."
+        elif diferencia > 0:
+            return f"Sobrante en caja de: ${diferencia:.2f}"
+        else:
+            return f"Faltante en caja de: ${abs(diferencia):.2f}"
