@@ -1,0 +1,39 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Bytecode compilado de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribución / empaquetado
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Archivos de entorno / configuracion local
+.env
+.env.local
+
+# Cache y archivos temporales de herramientas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+
+# Configuracion de editores / IDEs
+.vscode/
+.idea/
+*.swp
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Bases de datos locales (si llegaras a usar sqlite para pruebas)
+*.sqlite3
+*.db
