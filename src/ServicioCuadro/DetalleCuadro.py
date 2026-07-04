@@ -2,9 +2,8 @@ from ServicioProductos.Producto import Producto
 from datetime import date
 
 class DetalleCuadro():
-    def __init__(self, producto: Producto, fecha: date):
+    def __init__(self, producto: Producto):
         self.producto = producto
-        self._fecha = fecha
         self._cantidad_inicial = 0.0
         self._cantidad_entrada = 0.0
         self._cantidad_salida = 0.0
