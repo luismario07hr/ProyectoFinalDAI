@@ -32,7 +32,6 @@ class Cuadro:
         }    
 
     def cerrar_cuadro(self) -> None:
-        """Cambia el estado para congelar el día y cierra cada detalle de producto asociado."""
         if not self.comprobar_cuadro_esta_abierto():
             raise RuntimeError("ERROR: El cuadro ya se encuentra CERRADO")
 
@@ -44,7 +43,6 @@ class Cuadro:
         print(f"Cuadro {self.id_cuadro} cerrado exitosamente.")
 
     def calcular_valor_monetario_esperado(self) -> float:
-        """Suma el total vendido de cada producto registrado en el día."""
         if self.comprobar_cuadro_esta_abierto():
             raise RuntimeError("ERROR: El cuadro debe estar CERRADO para calcular el valor esperado")
 
@@ -54,7 +52,6 @@ class Cuadro:
         return total_esperado
 
     def comprobar_diferencia(self) -> str:
-        """Calcula la diferencia entre el dinero recibido y el valor monetario esperado."""
         esperado = self.calcular_valor_monetario_esperado()
         diferencia = self.dinero_recibido - esperado
 
