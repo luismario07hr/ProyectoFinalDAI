@@ -86,7 +86,6 @@ class DetalleCuadro():
         return {
             "producto": self.producto.producto_nombre,
             "categoria": self.producto.producto_categoria(),
-            "fecha": self._fecha,
             "estado": self._estado,
             "cantidad_inicial": self._cantidad_inicial,
             "entradas": self._cantidad_entrada,
