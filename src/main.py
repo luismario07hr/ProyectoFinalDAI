@@ -1,8 +1,3 @@
-"""
-Mini aplicacion interactiva de consola para probar Cuadro y DetalleCuadro.
-No usa funciones: todo el flujo esta escrito directamente como script.
-"""
-
 from datetime import date
 
 from ServicioProductos.Producto import ProductoPesable, ProductoNoPesable
@@ -12,7 +7,6 @@ from ServicioCuadro.DetalleCuadro import DetalleCuadro
 from ServicioCuadro.Cuadro import Cuadro
 
 
-# --- Datos de apoyo, creados de antemano ---
 sucursal = Sucursal(
     id_sucursal="SUC001",
     nombre="Sucursal Centro",
