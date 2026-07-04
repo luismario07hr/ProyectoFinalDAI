@@ -10,6 +10,14 @@ class Cuadro:
         self.fecha = fecha
         self.dinero_recibido = 0.0
         self.estado = "ABIERTO"
+        
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, Cuadro):
+            return NotImplemented
+        return self.id_cuadro == other.id_cuadro
+
+    def __hash__(self) -> int:
+        return hash(self.id_cuadro)
 
     def comprobar_cuadro_esta_abierto(self) -> bool:
         return self.estado == "ABIERTO"

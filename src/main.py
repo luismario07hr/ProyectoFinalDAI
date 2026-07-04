@@ -33,15 +33,14 @@ hoy = date.today()
 cuadro = Cuadro(id_cuadro="CUA001", sucursal=sucursal, fecha=hoy)
 print(f"Objeto creado -> Cuadro: id={cuadro.id_cuadro}, fecha={cuadro.fecha}")
 
-detalle_chicharron = DetalleCuadro(producto=chicharron, fecha=hoy)
-detalle_gaseosa = DetalleCuadro(producto=gaseosa, fecha=hoy)
+detalle_chicharron = DetalleCuadro(producto=chicharron)
+detalle_gaseosa = DetalleCuadro(producto=gaseosa)
 print("Objeto creado -> DetalleCuadro para Chicharron")
 print("Objeto creado -> DetalleCuadro para Gaseosa 600ml")
 
 cuadro.agregar_detalle_producto(detalle_chicharron)
 cuadro.agregar_detalle_producto(detalle_gaseosa)
 print("Ambos DetalleCuadro fueron agregados al Cuadro.\n")
-
 
 while True:
     print("""
