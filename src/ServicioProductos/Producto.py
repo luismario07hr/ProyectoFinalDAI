@@ -47,7 +47,13 @@ class ProductoNoPesable(Producto):
         return self._marca
     
     def verificar_tipo_dato_correcto(self, dato) -> bool: 
-        return isinstance(dato, int) and not isinstance(dato, bool)
+        if isinstance(dato, bool):
+            return False
+        if isinstance(dato, int):
+            return True
+        if isinstance(dato, float):
+            return dato.is_integer()
+        return False
     
     
     
