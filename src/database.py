@@ -4,12 +4,13 @@ from config import SUPABASE_URL, SUPABASE_KEY
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def obtener_productos():
-    respuesta = (supabase
-                 .table("productos")
-                 .select("*")
-                 .order("id_producto")
-                 .execute())
-    
+    respuesta = (
+        supabase
+        .table("productos")
+        .select("*")
+        .order("id_producto")
+        .execute()
+    )
     return respuesta.data
 
 def obtener_producto_por_id(id_producto: str):
@@ -20,10 +21,8 @@ def obtener_producto_por_id(id_producto: str):
         .eq("id_producto", id_producto)
         .execute()
     )
-    
     if respuesta.data:
         return respuesta.data[0]
-    
     return None
 
 def insertar_producto(producto: dict):
@@ -73,10 +72,8 @@ def obtener_cuadro_por_id(id_cuadro: str):
         .eq("id_cuadro", id_cuadro)
         .execute()
     )
-    
     if respuesta.data:
         return respuesta.data[0]
-    
     return None
 
 def insertar_cuadro(cuadro: dict):
@@ -98,6 +95,16 @@ def actualizar_estado_cuadro(id_cuadro: str, estado: str):
     )
     return response.data
 
+def actualizar_dinero_recibido_cuadro(id_cuadro: str, dinero_recibido: float):
+    response = (
+        supabase
+        .table("cuadros")
+        .update({"dinero_recibido": dinero_recibido})
+        .eq("id_cuadro", id_cuadro)
+        .execute()
+    )
+    return response.data
+
 def obtener_detalles_por_cuadro(id_cuadro: str):
     respuesta = (
         supabase
@@ -113,6 +120,19 @@ def insertar_detalle_cuadro(detalle: dict):
         supabase
         .table("detalle_cuadro")
         .insert(detalle)
+        .execute()
+    )
+    return response.data
+
+def actualizar_detalle_cuadro(id_detalle: int, detalle: dict):
+    campos_excluidos = {"id_detalle", "id_cuadro", "id_producto"}
+    datos_actualizar = {k: v for k, v in detalle.items() if k not in campos_excluidos}
+
+    response = (
+        supabase
+        .table("detalle_cuadro")
+        .update(datos_actualizar)
+        .eq("id_detalle", id_detalle)
         .execute()
     )
     return response.data
