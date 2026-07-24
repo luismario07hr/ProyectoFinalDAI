@@ -66,7 +66,6 @@ def actualizar_estado(id_cuadro):
     resultado = actualizar_estado_cuadro(id_cuadro, datos.get("estado"))
     return jsonify(resultado), 200
 
-
 @app.get("/cuadros/<string:id_cuadro>/detalles")
 def listar_detalles_cuadro(id_cuadro):
     return jsonify(obtener_detalles_por_cuadro(id_cuadro)), 200
@@ -74,14 +73,12 @@ def listar_detalles_cuadro(id_cuadro):
 @app.post("/cuadros/<string:id_cuadro>/detalles")
 def insertar_detalle(id_cuadro):
     detalle = request.get_json()
-    # Forzamos que el detalle se vincule al cuadro de la URL por seguridad
     detalle["id_cuadro"] = id_cuadro 
     resultado = insertar_detalle_cuadro(detalle)
     return jsonify(resultado), 201
 
 @app.errorhandler(Exception)
 def manejar_error(error):
-    # Durante el desarrollo permite observar errores sin ocultarlos completamente.
     return jsonify({"error": str(error)}), 500
 
 if __name__ == "__main__":
